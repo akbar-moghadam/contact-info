@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { contactData,soLink } from './data';
+import Form from './Form';
+import './style/app.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="section">
+      <div className="container">
+        <div className="contact">
+          <h2>Contact Info</h2>
+          <div className="info">
+          {contactData.map((data) => (
+            
+              <div className="info-items" key={data.id}>
+                <i className="icon"> {data.titleIcon} </i>
+                <span className="title">{data.title}</span>
+              </div>
+            
+          ))}
+          </div>
+          <div className="social-item">
+          {soLink.map((data) => (
+            
+              <a key={data.id} href={data.link}><i className="social-icon">{data.icon}</i></a>
+            
+          ))}
+          </div>
+        </div>
+        <div className="message">
+          <Form/>
+        </div>
+      </div>
+    </section>
   );
 }
 

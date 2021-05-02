@@ -1,0 +1,135 @@
+@import "color";
+@import "mix";
+@import "media";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+%display-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section{
+@extend %display-flex;
+min-height: 100vh;
+background: $sormei;
+
+@include tablet{
+
+}
+&::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: $abi;
+}
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    min-width: 70rem;
+    min-height: 35rem;
+    z-index: 1000;
+    background: $tosi;
+    position: relative;
+    box-shadow: 1px 6px 8px rgba($color: #353535, $alpha: 1.0);
+    @include tablet{
+        grid-template-columns: 1fr;
+        min-width: 45rem;
+    }
+    @include phone{
+        grid-template-columns: 1fr;
+        grid-template-rows: 30% 60%;
+        min-width: 25rem;
+        
+    }
+   
+    
+}
+.contact{
+    @extend %display-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    left:-8rem;
+    top:1.5rem;
+    width: 100%;
+    height: 32rem;
+    background: $sormei;
+    box-shadow: 2px 0px 20px 2px rgba($color: #575555, $alpha: 1.0);
+
+    @include tablet{
+        height: 20rem; 
+        width: 50%;
+        left: 20rem;
+        top: 2rem;
+    }
+  @include phone{
+      left: -2rem;
+      height: 20rem;
+  }
+  
+
+    h2{
+        color:$sefid;
+        margin: 3rem auto;
+        padding: 1rem auto;
+    }
+    .info{
+        @extend %display-flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .info-items{
+        @extend %display-flex;
+        justify-content: flex-start;
+        width: 80%;
+        margin: 0.5rem auto;
+        padding: 0.5rem auto;
+
+        .title{
+            @include clamp('margin-left',5px,3vw,15px);
+            color:$sefid;
+            @include clamp('font-size',12px,3vw,16px);
+        }
+        .icon{
+            color:$sefid;
+            @include clamp('font-size',12px,3vw,26px);
+        }
+        
+    }
+    .social-item{
+        @extend %display-flex;
+        width: 100%;
+        @include clamp('margin-top',8rem,3vw,12rem);
+        position: relative;
+        @include tablet{
+            margin-top: 1rem;
+        }
+        @include phone{
+            margin-top: 2rem;
+        }
+       
+        
+        .social-icon{
+            color:$sefid;
+            padding: 0.5rem;
+            margin: 0.5rem 0.5rem;
+            @include clamp('font-size',12px,3vw,26px);
+        }
+    }
+}
+.message{
+    @extend %display-flex;
+    background: $tosi;
+    width: 100%;
+    height: 100%;
+}
